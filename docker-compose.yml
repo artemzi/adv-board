@@ -67,10 +67,9 @@ services:
         image: redis:3.0
         ports:
             - "6379:6379"
-    node:
-        build:
-            context: ./
-            dockerfile: docker/node.docker
-        volumes:
-            - ./:/var/www
-        tty: true
+#    node:
+#        image: node:9.11.1-alpine
+#        volumes:
+#            - ./:/var/www
+#        working_dir: /var/www
+#        tty: true
