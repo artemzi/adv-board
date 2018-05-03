@@ -9,16 +9,7 @@ docker-build:
 	docker-compose up --build -d
 
 test:
-	docker exec board_php-cli_1 vendor/bin/phpunit --colors=always
-
-assets-install:
-	docker exec board_node_1 yarn install
-
-assets-dev:
-	docker exec board_node_1 yarn run dev
-
-assets-watch:
-	docker exec board_node_1 yarn run watch
+	docker-compose exec php-cli vendor/bin/phpunit
 
 perm:
 	sudo chown $USER:$USER bootstrap/cache -R
