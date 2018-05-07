@@ -5,13 +5,14 @@ namespace Board\Http\Controllers\Admin;
 use Board\User;
 use Illuminate\Http\Request;
 use Board\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
 class UsersController extends Controller
 {
     public function index()
     {
-        $users = User::orderBy('id', 'desc')->paginate(20);
+        $users = User::orderByDesc('id')->paginate(20);
 
         return view('admin.users.index', compact('users'));
     }
@@ -23,16 +24,16 @@ class UsersController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $data = $this->validate($request, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
         ]);
 
-        $user = User::create([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'status' => User::STATUS_ACTIVE,
-        ]);
+        $data['password'] = bcrypt(Str::random());
+        $data['status'] = User::STATUS_ACTIVE;
+
+        $user = User::create($data);
+
         return redirect()->route('admin.users.show', $user);
     }
 
@@ -55,19 +56,15 @@ class UsersController extends Controller
     {
         $data = $this->validate($request, [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users,id'.$user->id,
+            'email' => 'required|string|email|max:255|unique:users,id,' . $user->id,
             'status' => ['required', 'string', Rule::in([User::STATUS_WAIT, User::STATUS_ACTIVE])],
         ]);
 
         $user->update($data);
+
         return redirect()->route('admin.users.show', $user);
     }
 
-    /**
-     * @param User $user
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws \Exception
-     */
     public function destroy(User $user)
     {
         $user->delete();

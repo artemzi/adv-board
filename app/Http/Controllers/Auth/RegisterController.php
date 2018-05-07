@@ -7,9 +7,6 @@ use Board\Http\Requests\Auth\RegisterRequest;
 use Board\Mail\Auth\VerifyMail;
 use Board\User;
 use Illuminate\Auth\Events\Registered;
-use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Mail;
 
@@ -39,7 +36,7 @@ class RegisterController extends Controller
         event(new Registered($user));
 
         return redirect()->route('login')
-                ->with('success', 'Check your email and click on the link to verify');
+            ->with('success', 'Check your email and click on the link to verify.');
     }
 
     public function verify($token)
