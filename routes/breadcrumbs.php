@@ -28,3 +28,28 @@ Breadcrumbs::register('cabinet', function ($breadcrumbs) {
     $breadcrumbs->parent('home');
     $breadcrumbs->push('Cabinet', route('cabinet'));
 });
+
+Breadcrumbs::register('admin.home', function ($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Admin', route('admin.home'));
+});
+
+Breadcrumbs::register('admin.users.index', function ($breadcrumbs) {
+    $breadcrumbs->parent('admin.home');
+    $breadcrumbs->push('Users', route('admin.users.index'));
+});
+
+Breadcrumbs::register('admin.users.create', function ($breadcrumbs) {
+    $breadcrumbs->parent('admin.users.index');
+    $breadcrumbs->push('Create', route('admin.users.create'));
+});
+
+Breadcrumbs::register('admin.users.show', function ($breadcrumbs, \Board\User $user) {
+    $breadcrumbs->parent('admin.users.index');
+    $breadcrumbs->push($user->name, route('admin.users.show'));
+});
+
+Breadcrumbs::register('admin.users.edit', function ($breadcrumbs, \Board\User $user) {
+    $breadcrumbs->parent('admin.users.show', $user);
+    $breadcrumbs->push('Edit', route('admin.users.edit', $user));
+});
