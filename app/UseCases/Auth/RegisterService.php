@@ -1,6 +1,6 @@
 <?php
 
-namespace App\UseCases\Auth;
+namespace Board\UseCases\Auth;
 
 use Board\Http\Requests\Auth\RegisterRequest;
 use Board\Mail\Auth\VerifyMail;
