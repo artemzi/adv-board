@@ -5,7 +5,6 @@ namespace Board\Http\Controllers\Auth;
 use Board\Http\Controllers\Controller;
 use Board\Http\Requests\Auth\LoginRequest;
 use Board\User;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
