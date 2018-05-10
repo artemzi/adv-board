@@ -2,7 +2,7 @@
 
 namespace Board\Http\Controllers\Auth;
 
-use App\UseCases\Auth\RegisterService;
+use Board\UseCases\Auth\RegisterService;
 use Board\Http\Controllers\Controller;
 use Board\Http\Requests\Auth\RegisterRequest;
 use Board\User;
