@@ -6,10 +6,20 @@ use Board\Http\Requests\Auth\RegisterRequest;
 use Board\Mail\Auth\VerifyMail;
 use Board\User;
 use Illuminate\Auth\Events\Registered;
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Contracts\Events\Dispatcher;
+use Illuminate\Contracts\Mail\Mailer;
 
 class RegisterService
 {
+    private $mailer;
+    private $dispatcher;
+
+    public function __construct(Mailer $mailer, Dispatcher $dispatcher)
+    {
+        $this->mailer = $mailer;
+        $this->dispatcher = $dispatcher;
+    }
+
     public function register(RegisterRequest $request): void
     {
         $user = User::register(
@@ -18,7 +28,7 @@ class RegisterService
             $request['password']
         );
 
-        Mail::to($user->email)->send(new VerifyMail($user));
+        $this->mailer->to($user->email)->send(new VerifyMail($user));
         event(new Registered($user));
     }
 
