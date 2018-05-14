@@ -7,7 +7,6 @@ use Board\Http\Requests\Admin\Users\CreateRequest;
 use Board\Http\Requests\Admin\Users\UpdateRequest;
 use Board\UseCases\Auth\RegisterService;
 use Board\User;
-use Illuminate\Support\Str;
 
 class UsersController extends Controller
 {
