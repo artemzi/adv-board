@@ -29,7 +29,7 @@ class RegisterService
         );
 
         $this->mailer->to($user->email)->send(new VerifyMail($user));
-        event(new Registered($user));
+        $this->dispatcher->dispatch(new Registered($user));
     }
 
     public function verify($id): void
