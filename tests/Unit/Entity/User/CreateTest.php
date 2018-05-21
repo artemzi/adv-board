@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Entity\User;
 
-use Board\User;
+use Board\Entity\User;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 

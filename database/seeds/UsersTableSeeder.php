@@ -1,6 +1,7 @@
 <?php
 
-use Board\User;
+
+use Board\Entity\User;
 use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder

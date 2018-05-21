@@ -5,7 +5,7 @@ namespace Board\Http\Controllers\Auth;
 use Board\UseCases\Auth\RegisterService;
 use Board\Http\Controllers\Controller;
 use Board\Http\Requests\Auth\RegisterRequest;
-use Board\User;
+use Board\Entity\User;
 
 class RegisterController extends Controller
 {

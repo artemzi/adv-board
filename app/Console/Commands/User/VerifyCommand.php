@@ -3,7 +3,7 @@
 namespace Board\Console\Commands\User;
 
 use Board\UseCases\Auth\RegisterService;
-use Board\User;
+use Board\Entity\User;
 use Illuminate\Console\Command;
 
 class VerifyCommand extends Command

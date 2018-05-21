@@ -4,7 +4,7 @@ namespace Board\UseCases\Auth;
 
 use Board\Http\Requests\Auth\RegisterRequest;
 use Board\Mail\Auth\VerifyMail;
-use Board\User;
+use Board\Entity\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Contracts\Mail\Mailer;

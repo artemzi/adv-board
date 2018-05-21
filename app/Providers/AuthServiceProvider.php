@@ -2,7 +2,7 @@
 
 namespace Board\Providers;
 
-use Board\User;
+use Board\Entity\User;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 

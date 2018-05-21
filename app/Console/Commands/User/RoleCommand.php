@@ -2,7 +2,7 @@
 
 namespace Board\Console\Commands\User;
 
-use Board\User;
+use Board\Entity\User;
 use Illuminate\Console\Command;
 
 class RoleCommand extends Command

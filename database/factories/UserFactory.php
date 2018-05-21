@@ -1,6 +1,6 @@
 <?php
 
-use Board\User;
+use Board\Entity\User;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 

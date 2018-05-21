@@ -2,7 +2,7 @@
 
 namespace Board\Mail\Auth;
 
-use Board\User;
+use Board\Entity\User;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 

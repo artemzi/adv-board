@@ -2,7 +2,7 @@
 
 namespace Board\Http\Requests\Admin\Users;
 
-use Board\User;
+use Board\Entity\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 

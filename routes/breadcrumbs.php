@@ -1,6 +1,6 @@
 <?php
 
-use Board\User;
+use Board\Entity\User;
 use DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator as Crumbs;
 
 Breadcrumbs::register('home', function (Crumbs $crumbs) {

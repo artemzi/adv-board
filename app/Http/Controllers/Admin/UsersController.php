@@ -6,7 +6,7 @@ use Board\Http\Controllers\Controller;
 use Board\Http\Requests\Admin\Users\CreateRequest;
 use Board\Http\Requests\Admin\Users\UpdateRequest;
 use Board\UseCases\Auth\RegisterService;
-use Board\User;
+use Board\Entity\User;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
