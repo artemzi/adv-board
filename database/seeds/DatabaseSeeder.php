@@ -8,5 +8,6 @@ class DatabaseSeeder extends Seeder
     {
          $this->call(UsersTableSeeder::class);
          $this->call(RegionsTableSeeder::class);
+         $this->call(AdvertsCategoriesTableSeeder::class);
     }
 }
