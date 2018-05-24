@@ -1,6 +1,7 @@
 <?php
 
 use Board\Entity\Region;
+use Board\Entity\Adverts\Category;
 use Board\Entity\User;
 use DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator as Crumbs;
 
