@@ -2,7 +2,7 @@
 
 namespace Board\Http\Controllers\Admin;
 
-use Illuminate\Routing\Controller;
+use Board\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {

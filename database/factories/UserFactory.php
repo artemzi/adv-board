@@ -16,6 +16,8 @@ use Illuminate\Support\Str;
 |
 */
 
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+
 $factory->define(User::class, function (Faker $faker) {
     $active = $faker->boolean;
     $phoneActive = $faker->boolean;
