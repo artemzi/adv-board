@@ -9,11 +9,12 @@ use Illuminate\Support\Str;
 /**
  * @property int $id
  * @property string $name
+ * @property string $last_name
  * @property string $email
  * @property string $password
  * @property string $verify_token
- * @property string $status
  * @property string $role
+ * @property string $status
  */
 class User extends Authenticatable
 {
@@ -25,20 +26,10 @@ class User extends Authenticatable
     public const ROLE_USER = 'user';
     public const ROLE_ADMIN = 'admin';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
-        'name', 'email', 'password', 'status', 'verify_token', 'status', 'role',
+        'name', 'last_name', 'email', 'password', 'verify_token', 'status', 'role',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password', 'remember_token',
     ];
