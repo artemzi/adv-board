@@ -158,6 +158,7 @@ return [
         // Board\Providers\BroadcastServiceProvider::class,
         Board\Providers\EventServiceProvider::class,
         Board\Providers\RouteServiceProvider::class,
+        Board\Providers\SmsServiceProvider::class,
 
     ],
 
