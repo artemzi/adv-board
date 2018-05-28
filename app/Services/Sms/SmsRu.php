@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Sms;
+namespace Board\Services\Sms;
 
 use GuzzleHttp\Client;
 

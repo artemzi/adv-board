@@ -2,8 +2,6 @@
 
 namespace Board\Services\Sms;
 
-use App\Services\Sms\SmsSender;
-
 class ArraySender implements SmsSender
 {
     private $messages = [];

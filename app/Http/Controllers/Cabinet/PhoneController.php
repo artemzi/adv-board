@@ -2,7 +2,7 @@
 
 namespace Board\Http\Controllers\Cabinet;
 
-use App\Services\Sms\SmsSender;
+use Board\Services\Sms\SmsSender;
 use Illuminate\Http\Request;
 use Board\Http\Controllers\Controller;
 use Illuminate\Support\Carbon;
@@ -52,6 +52,17 @@ class PhoneController extends Controller
             return redirect()->route('cabinet.profile.phone')->with('error', $e->getMessage());
         }
 
+        return redirect()->route('cabinet.profile.home');
+    }
+
+    public function auth()
+    {
+        $user = Auth::user();
+        if ($user->isPhoneAuthEnabled()) {
+            $user->disablePhoneAuth();
+        } else {
+            $user->enablePhoneAuth();
+        }
         return redirect()->route('cabinet.profile.home');
     }
 }
