@@ -159,6 +159,7 @@ return [
         Board\Providers\EventServiceProvider::class,
         Board\Providers\RouteServiceProvider::class,
         Board\Providers\SmsServiceProvider::class,
+        Board\Providers\CacheServiceProvider::class,
 
     ],
 

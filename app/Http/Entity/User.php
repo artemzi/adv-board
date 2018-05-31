@@ -18,6 +18,7 @@ use Illuminate\Support\Str;
  * @property string $verify_token
  * @property string $phone_verify_token
  * @property Carbon $phone_verify_token_expire
+ * @property boolean $phone_auth
  * @property string $role
  * @property string $status
  */
@@ -102,7 +103,7 @@ class User extends Authenticatable
 
     public function changeRole($role): void
     {
-        if (!\in_array($role, [self::ROLE_USER, self::ROLE_ADMIN], true)) {
+        if (!array_key_exists($role, self::rolesList())) {
             throw new \InvalidArgumentException('Undefined role "' . $role . '"');
         }
         if ($this->role === $role) {
@@ -165,6 +166,24 @@ class User extends Authenticatable
         $this->saveOrFail();
     }
 
+    public function addToFavorites($id): void
+    {
+        if ($this->hasInFavorites($id)) {
+            throw new \DomainException('This advert is already added to favorites.');
+        }
+        $this->favorites()->attach($id);
+    }
+
+    public function removeFromFavorites($id): void
+    {
+        $this->favorites()->detach($id);
+    }
+
+    public function hasInFavorites($id): bool
+    {
+        return $this->favorites()->where('id', $id)->exists();
+    }
+
     public function isModerator(): bool
     {
         return $this->role === self::ROLE_MODERATOR;
@@ -188,5 +207,10 @@ class User extends Authenticatable
     public function hasFilledProfile(): bool
     {
         return !empty($this->name) && !empty($this->last_name) && $this->isPhoneVerified();
+    }
+
+    public function favorites()
+    {
+        return $this->belongsToMany(Advert::class, 'advert_favorites', 'user_id', 'advert_id');
     }
 }

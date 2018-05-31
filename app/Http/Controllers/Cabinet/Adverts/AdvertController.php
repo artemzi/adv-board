@@ -2,18 +2,16 @@
 
 namespace Board\Http\Controllers\Cabinet\Adverts;
 
+use Board\Entity\Adverts\Advert\Advert;
 use Board\Http\Controllers\Controller;
-use Board\Http\Middleware\FilledProfile;
+use Illuminate\Support\Facades\Auth;
 
 class AdvertController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(FilledProfile::class);
-    }
-
     public function index()
     {
-        return view('cabinet.adverts.index');
+        $adverts = Advert::forUser(Auth::user())->orderByDesc('id')->paginate(20);
+
+        return view('cabinet.adverts.index', compact('adverts'));
     }
 }
