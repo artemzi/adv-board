@@ -37,7 +37,7 @@ class AdvertController extends Controller
         return view('adverts.index', compact('category', 'region', 'categories', 'regions', 'adverts'));
     }
 
-    public function show(Advert $advert)
+    public function show(\Board\Entity\Adverts\Advert\Advert $advert)
     {
         if (!($advert->isActive() || Gate::allows('show-advert', $advert))) {
             abort(403);

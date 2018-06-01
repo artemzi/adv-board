@@ -2,6 +2,7 @@
 
 namespace Board\Entity;
 
+use Board\Entity\Adverts\Advert\Advert;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Carbon;

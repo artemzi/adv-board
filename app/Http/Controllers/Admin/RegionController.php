@@ -8,7 +8,13 @@ use Illuminate\Http\Request;
 
 class RegionController extends Controller
 {
- public function index()
+
+    public function __construct()
+    {
+        $this->middleware('can:manage-regions');
+    }
+
+    public function index()
     {
         $regions = Region::where('parent_id', null)->orderBy('name')->get();
 
